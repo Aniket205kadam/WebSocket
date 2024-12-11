@@ -1,41 +1,22 @@
 package dev.aniketkadam.chat.chat;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
-import java.util.Date;
-
-@Entity(name = "chat-messages")
-public class ChatMessage {
-    @Id
-    private String id;
+public class ChatNotification {
     private String chatId;
     private String senderId;
     private String recipientId;
     private String content;
-    private Date timestamp;
 
     // constructor
-    public ChatMessage() {}
+    public ChatNotification() {}
 
-    public ChatMessage(String id, String chatId, String senderId, String recipientId, String content, Date timestamp) {
-        this.id = id;
+    public ChatNotification(String chatId, String senderId, String recipientId, String content) {
         this.chatId = chatId;
         this.senderId = senderId;
         this.recipientId = recipientId;
         this.content = content;
-        this.timestamp = timestamp;
     }
 
-    // setter and getter
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
+    // setter and Getter
     public String getChatId() {
         return chatId;
     }
@@ -68,24 +49,14 @@ public class ChatMessage {
         this.content = content;
     }
 
-    public Date getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
-
     // toString
     @Override
     public String toString() {
-        return "ChatMessage{" +
-                "id='" + id + '\'' +
-                ", chatId='" + chatId + '\'' +
+        return "ChatNotification{" +
+                "chatId='" + chatId + '\'' +
                 ", senderId='" + senderId + '\'' +
                 ", recipientId='" + recipientId + '\'' +
                 ", content='" + content + '\'' +
-                ", timestamp=" + timestamp +
                 '}';
     }
 }
